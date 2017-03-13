@@ -37,15 +37,15 @@ void loop()
     track1[t1] = 0;
     for (uint8_t b=0; b < BYTELENGTH; b++) {
 
-      // wait while clock is high
+      
       while (digitalRead(CLOCK2) && !digitalRead(CARD2));
-      // we sample on the falling edge
+      
       uint8_t x = digitalRead(DATA2);
       if (!x) {
       // data is LSB and inverted
         track1[t1] |= _BV(b);
       }
-      // heep hanging out while its low
+      
       while (!digitalRead(CLOCK2) && !digitalRead(CARD2));
      
     }
